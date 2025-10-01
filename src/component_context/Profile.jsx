@@ -1,7 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useUser } from "../context/UserContext1"; // ✅
 
-export default function Profile({ logout }) {
+export default function Profile() {
+  const { logout } = useUser(); // ✅ Direct access
+
   return (
     <div className="dropdown text-end">
       <a
@@ -25,7 +28,7 @@ export default function Profile({ logout }) {
           />
         </svg>
       </a>
-      <ul className="dropdown-menu text-small" >
+      <ul className="dropdown-menu text-small">
         <li>
           <NavLink className="dropdown-item" to="/profilePage">
             Profile
@@ -35,7 +38,7 @@ export default function Profile({ logout }) {
           <hr className="dropdown-divider" />
         </li>
         <li>
-          <button className="dropdown-item" onClick={logout}>
+          <button className="dropdown-item" onClick={logout}> {/* ✅ Better than <a> */}
             Sign out
           </button>
         </li>

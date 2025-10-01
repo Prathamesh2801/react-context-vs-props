@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SU from '../assets/sign_up.jpg'
-import toast from "react-hot-toast";
+import { useUser } from '../context/UserContext1'
+import { UserContext2 } from "../context/UserContext2";
 
-export default function Login({ setUser }) {
+export default function Login() {
   const navigate = useNavigate();
+  const { login } = useUser() // ✅ Get login function from context
+
   const [formData, setFormData] = useState({
     un: "",
     em: "",
@@ -22,17 +25,16 @@ export default function Login({ setUser }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (formData.un.trim() && formData.em.trim()) {
-      toast.success("Login Successfully !")
-      setUser(formData); // Update user state
+      login(formData);
 
       setFormData({
         un: '',
         em: '',
         pwd: ''
-      })
-      setTimeout(() => {
+      });
 
-        navigate("/");  // Navigate to home page after successful login
+      setTimeout(() => {
+        navigate("/");
       }, 1000);
     }
   }
@@ -90,8 +92,6 @@ export default function Login({ setUser }) {
           </form>
         </div>
       </div>
-
-
     </div>
   );
 }
