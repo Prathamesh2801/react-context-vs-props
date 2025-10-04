@@ -1,8 +1,8 @@
 import React from "react";
-import { useUser } from "../context/UserContext1"; // ✅
+import { useUser } from "../context/UserContext1";
 
 export default function ProfileDetails() {
-  const { user } = useUser(); // ✅
+  const { user } = useUser();
 
   if (!user || !user.un?.trim()) {
     return (

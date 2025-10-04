@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useUser } from "../context/UserContext1"; // ✅
+import { useUser } from "../context/UserContext1";
 
 export default function Profile() {
-  const { logout } = useUser(); // ✅ Direct access
+  const { logout } = useUser(); 
 
   return (
     <div className="dropdown text-end">

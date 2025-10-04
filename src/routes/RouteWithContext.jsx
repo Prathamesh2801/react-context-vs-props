@@ -8,13 +8,13 @@ import { UserProvider } from "../context/UserContext1";
 
 export default function RouteWithContext() {
     return (
-        <UserProvider> 
+        <UserProvider>
             <BrowserRouter>
-                <Navbar /> 
+                <Navbar />
                 <Routes>
                     <Route path="/" element={<Hero />} />
-                    <Route path="/login" element={<Login />} /> {/* ✅ No props */}
-                    <Route path="/profilePage" element={<ProfileDetails />} /> {/* ✅ No props */}
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/profilePage" element={<ProfileDetails />} />
                 </Routes>
             </BrowserRouter>
         </UserProvider>

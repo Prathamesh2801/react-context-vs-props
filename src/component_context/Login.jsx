@@ -6,7 +6,7 @@ import { UserContext2 } from "../context/UserContext2";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { login } = useUser() // ✅ Get login function from context
+  const { login } = useUser()
 
   const [formData, setFormData] = useState({
     un: "",
